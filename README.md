@@ -17,7 +17,7 @@
 </p>
 
 <p align='center'>
-    <img align='center' width='100%' src='./.github/preview.png' alt='Thumnail Gerenciador de Finanças Pessoais'>
+    <img align='center' width='100%' src='./.github/preview.png' alt='Thumbnail Gerenciador de Finanças Pessoais'>
 </p>
 
 <h2>💁‍♂️ Sobre o Projeto</h2>
@@ -27,7 +27,7 @@ O projeto trata-se de um aplicativo mobile destinado ao gerenciamento e controle
 O projeto foi projetado e desenvolvido entre o final de 2025 e início de 2026, projetado no Figma e desenvolvido em MERN Stack (MongoDB, Express, React, Node.js), utilizando workflows no Front-End, como o Tailwind CSS, através do Nativewind, e o Expo-Router. <br>
 O aplicativo aborda diferentes abordagens e tecnologias nunca antes vistas por mim, desde um dot-pattern até animações mais avançadas utilizando o React Native Reanimated. <br>
 <ul>
-    <li>Back-end: [GitHub](https://github.com/ptrpacheco/finance-manager).</li>
+    <li>Back-end: [GitHub](https://github.com/ptrpacheco/finance-manager-backend).</li>
     <li>Protótipo: [Figma](https://www.figma.com/community/file/1590871304833978693/gerenciador-de-financas-pessoais).</li>
 </ul>
 
