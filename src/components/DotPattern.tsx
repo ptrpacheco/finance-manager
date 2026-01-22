@@ -8,11 +8,11 @@ type DotPatternProps = {
 
 export default function DotPattern({ location, opacity }: DotPatternProps) {
   return (
-    <View className="absolute size-full backdrop-blur-xl" style={{ opacity: opacity ?? 1 }}>
+    <View className="absolute size-full rounded-full" style={{ opacity: opacity ?? 1 }}>
       <Image
         source={require('@/assets/patterns/dot-pattern-dark.png')}
         resizeMode="repeat"
-        className="absolute size-full"
+        className="size-full"
       />
       <LinearGradient
         colors={['rgba(33, 33, 33, .2)', 'rgba(33, 33, 33, .95)']}

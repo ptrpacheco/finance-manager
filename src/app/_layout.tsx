@@ -1,7 +1,6 @@
 import { SplashScreen, Stack } from 'expo-router';
 import '@/styles/global.css';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import SafeScreen from '@/components/SafeScreen';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import { useEffect } from 'react';
