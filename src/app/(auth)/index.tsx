@@ -1,4 +1,4 @@
-import { Image, Text, View } from 'react-native';
+import { ImageBackground, Text, View } from 'react-native';
 import PrimaryButton from '@/components/buttons/PrimaryButton';
 import Header from '@/components/Header';
 import DotPattern from '@/components/DotPattern';
@@ -10,16 +10,18 @@ export default function SignIn() {
   const router = useRouter();
 
   return (
-    <View className="relative flex-1 items-center justify-center">
-      <Image
-        source={require('@/assets/images/landing-background.jpg')}
-        resizeMode="cover"
-        className="absolute size-full"
-      />
-      <DotPattern location={[0, 0.2]} />
+    <View className="relative flex-1 items-center justify-center px-6 bg-gray-700">
+      <View className='absolute inset-0'>
+        <ImageBackground
+          source={require('@/assets/images/landing-background.jpg')}
+          resizeMode="cover"
+          className="size-full"
+        />
+        <DotPattern opacity={10} location={[0, 0.2]} />
+      </View>
       <Header title="Fazer Login" subtitle="Para entrar em nossa plataforma" />
 
-      <View className="w-full flex-col gap-12 p-6">
+      <View className="w-full flex-col gap-12">
         <View className='flex-col gap-6'> 
           <LabelTextInput label="Email" value="" keyboardType="email-address" autoCapitalize="none" />
           <LabelPasswordInput label="Senha" value="" />

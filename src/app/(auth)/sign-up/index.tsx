@@ -1,4 +1,4 @@
-import { Image, Text, View } from 'react-native';
+import { ImageBackground, Text, View } from 'react-native';
 import PrimaryButton from '@/components/buttons/PrimaryButton';
 import Header from '@/components/Header';
 import DotPattern from '@/components/DotPattern';
@@ -17,16 +17,18 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   return (
-    <View className="relative flex-1 items-center justify-center">
-      <Image
-        source={require('@/assets/images/landing-background.jpg')}
-        resizeMode="cover"
-        className="absolute size-full"
-      />
-      <DotPattern location={[0, 0.2]} />
+    <View className="relative flex-1 items-center justify-center px-6 bg-gray-700">
+      <View className='absolute inset-0'>
+        <ImageBackground
+          source={require('@/assets/images/landing-background.jpg')}
+          resizeMode="cover"
+          className="size-full"
+        />
+        <DotPattern opacity={10} location={[0, 0.2]} />
+      </View>
       <Header title="Cadastrar-se" subtitle="Faça cadastro para entrar em nossa plataforma" />
 
-      <View className="w-full flex-col gap-12 p-6">
+      <View className="w-full flex-col gap-12">
         <View className="flex-col gap-6">
           <View className="w-full flex-row gap-2">
             <LabelTextInput
@@ -61,7 +63,7 @@ export default function SignUp() {
           />
         </View>
         <View className="flex-col gap-4">
-          <PrimaryButton title="Cadastrar-se" onPress={() => router.navigate('/(auth)/sign-up/confirm-email')} />
+          <PrimaryButton title="Cadastrar-se" onPress={() => router.push('/confirm-email')} />
           <Text className="text-center font-light text-sm leading-tight text-white">
             Ao entrar em nossa plataforma você concorda com nossos{' '}
             <Link href="/" className="font-semibold underline">

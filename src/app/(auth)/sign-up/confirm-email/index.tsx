@@ -1,4 +1,4 @@
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { ImageBackground, Text, TouchableOpacity, View } from 'react-native';
 import Ionicon from '@expo/vector-icons/Ionicons';
 import PrimaryButton from '@/components/buttons/PrimaryButton';
 import Header from '@/components/Header';
@@ -13,13 +13,15 @@ export default function ConfirmEmail() {
   const [code, setCode] = useState('');
 
   return (
-    <View className="relative flex-1 items-center justify-center">
-      <Image
-        source={require('@/assets/images/landing-background.jpg')}
-        resizeMode="cover"
-        className="absolute size-full"
-      />
-      <DotPattern location={[0, 0.2]} />
+    <View className="relative flex-1 items-center justify-center px-6 bg-gray-700">
+      <View className='absolute inset-0'>
+        <ImageBackground
+          source={require('@/assets/images/landing-background.jpg')}
+          resizeMode="cover"
+          className="size-full"
+        />
+        <DotPattern opacity={10} location={[0, 0.2]} />
+      </View>
       <Header
         title="Confirmar Email"
         subtitle="Confirme seu email para entrar em nossa plataforma"

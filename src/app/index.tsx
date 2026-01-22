@@ -1,4 +1,4 @@
-import { Image, Text, View } from 'react-native';
+import { ImageBackground, Text, View } from 'react-native';
 import PrimaryButton from '@/components/buttons/PrimaryButton';
 import DotPattern from '@/components/DotPattern';
 import { useRouter } from 'expo-router';
@@ -8,15 +8,17 @@ export default function SignIn() {
   const router = useRouter();
 
   return (
-    <View className="relative flex-1 items-center justify-end">
-      <Image
-        source={require('@/assets/images/landing-background.jpg')}
-        resizeMode="cover"
-        className="absolute size-full"
-      />
-      <DotPattern opacity={10} />
+    <View className="relative flex-1 items-center justify-end px-6 bg-gray-700">
+      <View className='absolute inset-0'>
+        <ImageBackground
+          source={require('@/assets/images/landing-background.jpg')}
+          resizeMode="cover"
+          className="size-full"
+        />
+        <DotPattern opacity={10} />
+      </View>
 
-      <View className="w-full gap-6 px-6 py-16">
+      <View className="w-full gap-6 py-16">
         <View className="flex-col gap-2">
           <Text className="font-regular text-lg text-white">Pietro Pacheco</Text>
           <Text className="font-semibold text-4xl leading-8 text-white">

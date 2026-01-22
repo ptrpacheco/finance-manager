@@ -11,7 +11,7 @@ export default function Header({ title, subtitle }: HeaderProps) {
   const router = useRouter();
 
   return (
-    <View className="absolute top-12 w-full flex-row items-center gap-2 px-6">
+    <View className="absolute top-12 w-full flex-row items-center gap-2">
       <Pressable
         onPress={router.back}
         className="items-center justify-center rounded-full border-2 border-white p-2 inset-shadow-lg inset-shadow-white/50">
