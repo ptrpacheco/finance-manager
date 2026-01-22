@@ -18,8 +18,8 @@ export default function Header({ title, subtitle }: HeaderProps) {
         <Ionicons name="arrow-back" size={24} color="white" />
       </Pressable>
       <View className="flex-col flex-1">
-        <Text className="font-semibold text-white shadow-lg shadow-white">{title}</Text>
-        <Text className="font-light text-white truncate">{subtitle}</Text>
+        <Text className="font-semibold text-white shadow-lg shadow-white text-lg">{title}</Text>
+        <Text className="font-light text-white truncate text-xs">{subtitle}</Text>
       </View>
     </View>
   );
