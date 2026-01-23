@@ -2,16 +2,16 @@ import { Pressable, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 
-type HeaderProps = {
+type AbsoluteHeaderProps = {
   title?: string;
   subtitle?: string;
 };
 
-export default function Header({ title, subtitle }: HeaderProps) {
+export default function AbsoluteHeader({ title, subtitle }: AbsoluteHeaderProps) {
   const router = useRouter();
 
   return (
-    <View className="absolute top-12 w-full flex-row items-center gap-2">
+    <View className="absolute top-16 w-full flex-row items-center gap-2">
       <Pressable
         onPress={router.back}
         className="items-center justify-center rounded-full border-2 border-white p-2 inset-shadow-lg inset-shadow-white/50">

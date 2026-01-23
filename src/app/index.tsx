@@ -8,8 +8,8 @@ export default function SignIn() {
   const router = useRouter();
 
   return (
-    <View className="relative flex-1 items-center justify-end px-6 bg-gray-700">
-      <View className='absolute inset-0'>
+    <View className="relative flex-1 items-center justify-end bg-gray-700 px-6">
+      <View className="absolute inset-0">
         <ImageBackground
           source={require('@/assets/images/landing-background.jpg')}
           resizeMode="cover"
@@ -26,8 +26,8 @@ export default function SignIn() {
           </Text>
         </View>
         <View className="gap-4">
-          <PrimaryButton title="Fazer Login" onPress={() => router.push('/(auth)/')} />
-          <SecundaryButton title="Cadastrar-se" onPress={() => router.push('/(auth)/sign-up')} />
+          <PrimaryButton label="Fazer Login" onPress={() => router.push('/(auth)/')} />
+          <SecundaryButton label="Cadastrar-se" onPress={() => router.push('/(auth)/sign-up')} />
         </View>
       </View>
     </View>

@@ -8,17 +8,20 @@ import TransactionItem from '@/components/items/TransactionItem';
 import PrimaryButton from '@/components/buttons/PrimaryButton';
 import DotPattern from '@/components/DotPattern';
 import { BlurView } from 'expo-blur';
-import Animated from 'react-native-reanimated';
 import { useState } from 'react';
 import ProfileModal from '@/components/modals/ProfileModal';
+import { useRouter } from 'expo-router';
 
 export default function Dashboard() {
-    const [isProfileVisible, setIsProfileVisible] = useState(false)
+  const [isProfileVisible, setIsProfileVisible] = useState(false);
+
+  const router = useRouter();
 
   return (
-    <ScrollView className="relative bg-gray-700" contentContainerClassName="items-center gap-4 pb-12">
-    <ProfileModal visible={isProfileVisible} onClose={() => setIsProfileVisible(false)} />
-      <View className="absolute size-full flex-col">
+    <ScrollView className="bg-gray-700" contentContainerClassName="items-center gap-4 pb-12 px-4">
+      <ProfileModal visible={isProfileVisible} onClose={() => setIsProfileVisible(false)} />
+
+      <View className="absolute inset-0 flex-col">
         <ImageBackground
           source={require('@/assets/images/dashboard-background.jpg')}
           resizeMode="cover"
@@ -31,8 +34,10 @@ export default function Dashboard() {
         />
       </View>
 
-      <View className="mt-16 w-full flex-row gap-6 px-6">
-        <DotPatternItem className="size-16 items-center justify-center" onPress={() => setIsProfileVisible(true)}>
+      <View className="mt-16 w-full flex-row gap-6">
+        <DotPatternItem
+          className="size-16 items-center justify-center"
+          onPress={() => setIsProfileVisible(true)}>
           <Ionicons name="person-outline" size={24} color="#fff" />
         </DotPatternItem>
         <DotPatternItem className="flex-1 flex-row items-center justify-center gap-6">
@@ -59,14 +64,18 @@ export default function Dashboard() {
         </View>
       </BlurView>
 
-      <View className="w-full flex-row gap-2 px-6">
-        <DotPatternItem className="h-16 flex-1 flex-row items-center justify-center gap-1">
+      <View className="w-full flex-row gap-2">
+        <DotPatternItem
+          className="h-16 flex-1 flex-row items-center justify-center gap-1"
+          onPress={() => router.push('/income')}>
           <Text className="font-regular text-sm text-white shadow-md shadow-white">
             Adicionar Receita
           </Text>
           <Feather name="arrow-up-right" size={20} color="#fff" />
         </DotPatternItem>
-        <DotPatternItem className="h-16 flex-1 flex-row items-center justify-center gap-1">
+        <DotPatternItem
+          className="h-16 flex-1 flex-row items-center justify-center gap-1"
+          onPress={() => router.push('/expense')}>
           <Text className="font-regular text-sm text-white shadow-md shadow-white">
             Adicionar Despesa
           </Text>
@@ -76,7 +85,7 @@ export default function Dashboard() {
 
       <Line />
 
-      <View className="w-full flex-col gap-4 px-6">
+      <View className="w-full flex-col gap-4">
         <TransactionItem
           name="Transporte"
           category="car"
@@ -119,7 +128,7 @@ export default function Dashboard() {
           currency="BRL"
           value={128.23978}
         />
-        <PrimaryButton title="Ver Relatório" />
+        <PrimaryButton label="Ver Relatório" />
       </View>
     </ScrollView>
   );

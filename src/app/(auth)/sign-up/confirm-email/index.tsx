@@ -1,7 +1,7 @@
 import { ImageBackground, Text, TouchableOpacity, View } from 'react-native';
 import Ionicon from '@expo/vector-icons/Ionicons';
 import PrimaryButton from '@/components/buttons/PrimaryButton';
-import Header from '@/components/Header';
+import AbsoluteHeader from '@/components/headers/AbsoluteHeader';
 import DotPattern from '@/components/DotPattern';
 import LabelTextInput from '@/components/inputs/LabelTextInput';
 import { Link, useRouter } from 'expo-router';
@@ -22,8 +22,8 @@ export default function ConfirmEmail() {
         />
         <DotPattern opacity={10} location={[0, 0.2]} />
       </View>
-      <Header
-        title="Confirmar Email"
+      <AbsoluteHeader
+        label="Confirmar Email"
         subtitle="Confirme seu email para entrar em nossa plataforma"
       />
 
@@ -48,7 +48,7 @@ export default function ConfirmEmail() {
         </View>
         <View className="flex-col gap-4">
           <PrimaryButton
-            title="Confirmar Email"
+            label="Confirmar Email"
             onPress={() => router.replace('/(app)')}
           />
           <Text className="text-center font-light text-sm leading-tight text-white shadow-[0_4px_20px] shadow-white/30">

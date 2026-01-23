@@ -1,6 +1,6 @@
 import { ImageBackground, Text, View } from 'react-native';
 import PrimaryButton from '@/components/buttons/PrimaryButton';
-import Header from '@/components/Header';
+import AbsoluteHeader from '@/components/headers/AbsoluteHeader';
 import DotPattern from '@/components/DotPattern';
 import LabelTextInput from '@/components/inputs/LabelTextInput';
 import LabelPasswordInput from '@/components/inputs/LabelPasswordInput';
@@ -19,7 +19,7 @@ export default function SignIn() {
         />
         <DotPattern opacity={10} location={[0, 0.2]} />
       </View>
-      <Header title="Fazer Login" subtitle="Para entrar em nossa plataforma" />
+      <AbsoluteHeader title="Fazer Login" subtitle="Para entrar em nossa plataforma" />
 
       <View className="w-full flex-col gap-12">
         <View className='flex-col gap-6'> 
@@ -27,7 +27,7 @@ export default function SignIn() {
           <LabelPasswordInput label="Senha" value="" />
         </View>
         <View className='flex-col gap-4'>          
-          <PrimaryButton title="Fazer Login" onPress={() => router.replace('/(app)/')} />
+          <PrimaryButton label="Fazer Login" onPress={() => router.replace('/(app)/')} />
           <Text className="text-center font-light text-sm leading-tight text-white">
             Ao entrar em nossa plataforma você concorda com nossos{' '}
             <Link href="/" className="font-semibold underline">

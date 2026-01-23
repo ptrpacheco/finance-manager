@@ -3,24 +3,26 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 type CategoryIconProps = {
   icon?: string;
+  size?: 'small' | 'medium' | 'large';
 };
 
-export default function CategoryIcon({ icon }: CategoryIconProps) {
+export default function CategoryIcon({ icon, size }: CategoryIconProps) {
   return (
-    (icon === 'car' && (
-      <View className="size-14 items-center justify-center rounded-lg bg-red-700 shadow-md shadow-red-500">
-        <Ionicons name="car-outline" size={28} color="#212121" />
-      </View>
-    )) ||
-    (icon === 'home' && (
-      <View className="size-14 items-center justify-center rounded-lg bg-blue-700 shadow-md shadow-blue-500">
-        <Ionicons name="home-outline" size={28} color="#212121" />
-      </View>
-    )) ||
-    (icon === 'other' && (
-      <View className="size-14 items-center justify-center rounded-lg bg-yellow-500 shadow-md shadow-yellow-500">
-        <Ionicons name="cash-outline" size={28} color="#212121" />
-      </View>
-    ))
+    <View
+      className={`items-center justify-center rounded-lg shadow-md ${
+        (icon === 'car' && 'bg-red-700 shadow-red-500') ||
+        (icon === 'home' && 'bg-blue-700 shadow-blue-500') ||
+        'bg-yellow-500 shadow-yellow-500'
+      } ${(size === 'large' && 'p-8') || (size === 'medium' && 'p-4') || 'p-2'}`}>
+      <Ionicons
+        name={
+          ((icon === 'car' && 'car-outline') ||
+            (icon === 'home' && 'home-outline') ||
+            'cash-outline') as any
+        }
+        size={24}
+        color="#212121"
+      />
+    </View>
   );
 }

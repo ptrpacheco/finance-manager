@@ -1,6 +1,6 @@
 import { ImageBackground, Text, View } from 'react-native';
 import PrimaryButton from '@/components/buttons/PrimaryButton';
-import Header from '@/components/Header';
+import AbsoluteHeader from '@/components/headers/AbsoluteHeader';
 import DotPattern from '@/components/DotPattern';
 import LabelTextInput from '@/components/inputs/LabelTextInput';
 import LabelPasswordInput from '@/components/inputs/LabelPasswordInput';
@@ -26,7 +26,7 @@ export default function SignUp() {
         />
         <DotPattern opacity={10} location={[0, 0.2]} />
       </View>
-      <Header title="Cadastrar-se" subtitle="Faça cadastro para entrar em nossa plataforma" />
+      <AbsoluteHeader title="Cadastrar-se" subtitle="Faça cadastro para entrar em nossa plataforma" />
 
       <View className="w-full flex-col gap-12">
         <View className="flex-col gap-6">
@@ -63,7 +63,7 @@ export default function SignUp() {
           />
         </View>
         <View className="flex-col gap-4">
-          <PrimaryButton title="Cadastrar-se" onPress={() => router.push('/confirm-email')} />
+          <PrimaryButton label="Cadastrar-se" onPress={() => router.push('/confirm-email')} />
           <Text className="text-center font-light text-sm leading-tight text-white">
             Ao entrar em nossa plataforma você concorda com nossos{' '}
             <Link href="/" className="font-semibold underline">

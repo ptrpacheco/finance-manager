@@ -60,14 +60,16 @@ export default function LabelTextInput({
 
   return (
     <View
-      className={`relative rounded-lg border border-white ${width ? width : 'w-full'} ${disabled && 'border-gray-300'}`}>
+      className={`relative rounded-lg border ${width ? width : 'w-full'} ${(disabled && 'border-gray-300') || 'border-white'}`}>
       <Animated.View style={animatedStyles}>
         <View className="absolute left-2 top-4 z-10 bg-gray-700 px-1">
-          <Text className={`font-light text-white ${disabled && 'text-gray-300'}`}>{label}</Text>
+          <Text className={`font-light ${(disabled && 'text-gray-300') || 'text-white'}`}>
+            {label}
+          </Text>
         </View>
       </Animated.View>
       <TextInput
-        className={`px-4 pt-4 font-regular text-white ${disabled && 'text-gray-300'}`}
+        className={`px-4 pt-4 font-regular ${(disabled && 'text-gray-300') || 'text-white'}`}
         value={value}
         onChangeText={onChangeText}
         onFocus={handleFocus}
