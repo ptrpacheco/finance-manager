@@ -1,6 +1,6 @@
 import { ImageBackground, Modal, Pressable, Text, View } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import Line from '../Line';
+import Line from '@/components/Line';
 
 interface ProfileModalProps {
   visible: boolean;

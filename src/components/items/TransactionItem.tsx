@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native';
-import DotPatternItem from './DotPatternItem';
-import CategoryIcon from '../CategoryIcon';
+import DotPatternItem from '@/components/items/DotPatternItem';
+import CategoryIcon from '@/components/CategoryIcon';
 
 type TransactionItemProps = {
   name: string;

@@ -1,5 +1,5 @@
 import { Pressable, Text, View } from 'react-native';
-import DotPattern from '../DotPattern';
+import DotPattern from '@/components/DotPattern';
 import { BlurView } from 'expo-blur';
 
 type DotPatternItemProps = {
