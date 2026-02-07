@@ -41,7 +41,7 @@ export default function RootLayout() {
           }}
         />
       </Stack>
-      <StatusBar style="light" translucent />
+      <StatusBar style="auto" translucent />
     </SafeAreaProvider>
   );
 }
