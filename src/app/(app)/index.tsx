@@ -11,14 +11,19 @@ import { BlurView } from 'expo-blur';
 import { useState } from 'react';
 import ProfileModal from '@/components/modals/ProfileModal';
 import { useRouter } from 'expo-router';
+import { useColorScheme } from 'nativewind';
 
 export default function Dashboard() {
   const [isProfileVisible, setIsProfileVisible] = useState(false);
 
   const router = useRouter();
+  const { colorScheme, toggleColorScheme } = useColorScheme();
 
   return (
-    <ScrollView className="bg-gray-700" contentContainerClassName="items-center gap-4 pb-12 px-4">
+    <ScrollView
+      className="bg-white dark:bg-gray-700"
+      contentContainerClassName="items-center gap-4 pb-12 px-4">
+        
       <ProfileModal visible={isProfileVisible} onClose={() => setIsProfileVisible(false)} />
 
       <View className="absolute inset-0 flex-col">
@@ -29,7 +34,11 @@ export default function Dashboard() {
         />
         <LinearGradient
           className="absolute h-[60vh] w-full"
-          colors={['rgba(33, 33, 33, 1)', 'rgba(33, 33, 33, .2)', 'rgba(33, 33, 33, 1)']}
+          colors={
+            colorScheme === 'dark'
+              ? ['rgba(33, 33, 33, 1)', 'rgba(33, 33, 33, .2)', 'rgba(33, 33, 33, 1)']
+              : ['rgba(255, 255, 255, 1)', 'rgba(255, 255, 255, .2)', 'rgba(255, 255, 255, 1)']
+          }
           locations={[0, 0.5, 1]}
         />
       </View>
@@ -38,29 +47,47 @@ export default function Dashboard() {
         <DotPatternItem
           className="size-16 items-center justify-center"
           onPress={() => setIsProfileVisible(true)}>
-          <Ionicons name="person-outline" size={24} color="#fff" />
+          <Ionicons
+            name="person-outline"
+            size={24}
+            color={colorScheme === 'dark' ? '#fff' : '#212121'}
+          />
         </DotPatternItem>
         <DotPatternItem className="flex-1 flex-row items-center justify-center gap-6">
-          <Text className="font-light text-xs text-white">Ordenar por:</Text>
+          <Text className="font-light text-xs text-gray-700 dark:text-white">Ordenar por:</Text>
           <View className="flex-row items-center gap-1">
-            <Text className="font-semibold text-lg text-white shadow-md shadow-white">Semana</Text>
-            <Ionicons name="chevron-down-outline" size={20} color="#fff" />
+            <Text className="font-semibold text-lg text-gray-700 shadow-md shadow-gray-700 dark:text-white">
+              Semana
+            </Text>
+            <Ionicons
+              name="chevron-down-outline"
+              size={20}
+              color={colorScheme === 'dark' ? '#fff' : '#212121'}
+            />
           </View>
         </DotPatternItem>
-        <DotPatternItem className="size-16 items-center justify-center">
-          <Ionicons name="moon-outline" size={24} color="#fff" />
+        <DotPatternItem
+          className="size-16 items-center justify-center"
+          onPress={() => toggleColorScheme()}>
+          <Ionicons
+            name={colorScheme === 'dark' ? 'sunny-outline' : 'moon-outline'}
+            size={24}
+            color={colorScheme === 'dark' ? '#fff' : '#212121'}
+          />
         </DotPatternItem>
       </View>
 
       <BlurView
-        className="relative size-96 flex-row items-center justify-center overflow-hidden rounded-full border border-gray-300 backdrop-blur-xl"
+        className="relative size-96 flex-row items-center justify-center overflow-hidden rounded-full border border-gray-50 dark:border-gray-300"
         intensity={40}
         tint="dark">
         <DotPattern />
         <View className="absolute flex-row items-end gap-1">
-          <Text className="font-light text-white">R$</Text>
-          <Text className="font-semibold text-4xl text-white shadow-md shadow-white">1000</Text>
-          <Text className="font-light text-white">,00</Text>
+          <Text className="font-light text-gray-700 dark:text-white">R$</Text>
+          <Text className="font-semibold text-4xl text-gray-700 shadow-md shadow-gray-700 dark:text-white">
+            1000
+          </Text>
+          <Text className="font-light text-gray-700 dark:text-white">,00</Text>
         </View>
       </BlurView>
 
@@ -68,18 +95,26 @@ export default function Dashboard() {
         <DotPatternItem
           className="h-16 flex-1 flex-row items-center justify-center gap-1"
           onPress={() => router.push('/income')}>
-          <Text className="font-regular text-sm text-white shadow-md shadow-white">
+          <Text className="font-regular text-sm text-gray-700 shadow-md shadow-gray-700 dark:text-white">
             Adicionar Receita
           </Text>
-          <Feather name="arrow-up-right" size={20} color="#fff" />
+          <Feather
+            name="arrow-up-right"
+            size={20}
+            color={colorScheme === 'dark' ? '#fff' : '#212121'}
+          />
         </DotPatternItem>
         <DotPatternItem
           className="h-16 flex-1 flex-row items-center justify-center gap-1"
           onPress={() => router.push('/expense')}>
-          <Text className="font-regular text-sm text-white shadow-md shadow-white">
+          <Text className="font-regular text-sm text-gray-700 shadow-md shadow-gray-700 dark:text-white">
             Adicionar Despesa
           </Text>
-          <Feather name="arrow-down-left" size={20} color="#fff" />
+          <Feather
+            name="arrow-down-left"
+            size={20}
+            color={colorScheme === 'dark' ? '#fff' : '#212121'}
+          />
         </DotPatternItem>
       </View>
 

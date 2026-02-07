@@ -1,3 +1,4 @@
+import { useColorScheme } from "nativewind";
 import { View } from "react-native";
 
 type LineProps = {
@@ -7,7 +8,10 @@ type LineProps = {
 };
 
 export default function Line({ length, thickness, color }: LineProps) {
+
+    const { colorScheme } = useColorScheme();
+
     return (
-        <View style={{width: length ?? '100%', height: thickness ?? 1, backgroundColor: color ?? '#414141'}} className="rounded-full" />
+        <View style={{width: length ?? '100%', height: thickness ?? 1, backgroundColor: color ?? colorScheme === 'dark' ? '#414141' : '#EBEBEB'}} className="rounded-full" />
     )
 }

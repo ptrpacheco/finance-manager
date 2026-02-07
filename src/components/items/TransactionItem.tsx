@@ -22,12 +22,12 @@ export default function TransactionItem({
       <View className="flex-row items-center justify-center gap-2 px-3">
         <CategoryIcon icon={category} />
         <View className="flex-col">
-          <Text className="font-semibold text-white">{name}</Text>
-          <Text className="font-light text-sm text-white">{category}</Text>
+          <Text className="font-semibold text-gray-700 dark:text-white">{name}</Text>
+          <Text className="font-light text-sm text-gray-700 dark:text-white">{category}</Text>
         </View>
       </View>
       <Text
-        className={`px-3 font-regular text-sm shadow-[0_4px_20px] ${type === 'income' ? 'text-green-500 shadow-green-500' : 'text-red-500 shadow-red-500'}`}>
+        className={`px-3 font-semibold text-sm shadow-[0_4px_20px] ${type === 'income' ? 'text-green-500 shadow-green-500' : 'text-red-500 shadow-red-500'}`}>
         {type === 'income' ? '+' : '-'}
         {(currency === 'BRL' && 'R$ ') || (currency === 'USD' && '$ ')}
         {value.toFixed(2)}
